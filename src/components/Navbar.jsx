@@ -94,14 +94,13 @@ const Navbar = () => {
       )}
 
       {/* Download CV Button */}
-      <div className="hidden md:block">
-        <button 
-          onClick={operCV} 
-          className="btn btn-dash hover:bg-gray-800 hover:text-white"
-        >
-          Download CV
-        </button>
-      </div>
+      <div className="dropdown dropdown-hover">
+  <div tabIndex={0} role="button" className="btn text-white bg-[#130335]  m-6">Resume</div>
+  <ul tabIndex={0} className="dropdown-content bg-[#4e199e]  menu  rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><a download href='myResume.pdf'>Download CV</a></li>
+    <li><a onClick={operCV} target='_blank'>Open CV</a></li>
+  </ul>
+</div>
     </div>
   );
 };
