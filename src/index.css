@@ -6,7 +6,12 @@
 * {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  scrollbar-width: thin;
+  /* overflow: hidden; */
   font-style: normal;
+}
+body{
+  overflow-x: hidden;
 }
 
 .bg{
@@ -17,6 +22,15 @@
     overflow: hidden;
     background-repeat: no-repeat ;
   
+}
+.bgdiv {
+  background-color: #9747ff;
+  border-radius: 100%;
+  filter: blur(241.1999969482422px);
+  flex: none;
+  height: 660px;
+  position: absolute;
+  width: 660px;
 }
 
   .name h1::after {

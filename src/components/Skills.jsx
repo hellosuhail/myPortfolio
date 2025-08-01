@@ -35,8 +35,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20  bg-[#130335] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 text-white">
+    <div className="bgdiv w-50 h-50 -left-50   top-390 absolute z-9"></div>
+      <div className="max-w-7xl relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="text-[#915eff]">Skills</span> & Expertise
@@ -50,7 +52,7 @@ const Skills = () => {
           {skills.map((category, index) => (
             <div 
               key={index}
-              className="bg-[#210d2d] rounded-lg p-6 shadow-lg hover:shadow-xl hover:shadow-[#8a6ba3] transition-all duration-300"
+              className="bg-transparent rounded-lg p-6 shadow-lg hover:shadow-xl hover:shadow-[#8a6ba3] transition-all duration-300"
             >
               <h3 className="text-xl font-semibold mb-6 text-[#915eff]">{category.category}</h3>
               <div className="space-y-4">

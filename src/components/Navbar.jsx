@@ -43,7 +43,11 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed w-full h-20 flex items-center justify-between px-4 bg-[#130335] text-white z-50">
+    <div className="fixed w-full h-20 flex items-center justify-between px-4 bg-[#1f0458]/80 text-white z-50">
+   {/* Mobile Menu Button */}
+      <div className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden" onClick={() => setNav(!nav)}>
+        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+      </div>
       <div>
         <h1 className="text-2xl font-bold text-[#8a6ba3]">Suhail Saifi</h1>
       </div>
@@ -67,10 +71,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* Mobile Menu Button */}
-      <div className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden" onClick={() => setNav(!nav)}>
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
+    
 
       {/* Mobile Menu */}
       {nav && (

@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { FaArrowDown } from 'react-icons/fa';
+import SplineModle from './SplineModle';
 
 
 const Home = () => {
  
 
-  const operCV = () => {
-    window.open("/myResume.pdf", "_blank")
-  }
+
  
   const scroll = () => {
     window.scroll({
@@ -19,9 +18,14 @@ const Home = () => {
 
   return (
     // <div className=" w-full h-screen   px-4 bg-[#130335] text-white z-50">
-  <div className="mb-6 bg h-[100vh] overflow-hidden w-full">
-      <div className="w-6 rounded-2xl mt-22 hidden md:block ml-0 h-6 bg-[#915eff]" />
+  <div className="mb-6  h-[100vh] overflow-hidden w-full">
+    <div className="bgdiv w-50 h-50 bg-red-500 top-110 absolute z-9"></div>
+    <div className="hidden md:block absolute top-5 left-0 w-full h-full bg-gradient-to-b from-[#130335] to-transparent z-5" >
+      <SplineModle/>
+    </div>
+      <div className="w-6 rounded-2xl mt-22 hidden md:block ml-0 h-6 bg-black" />
       
+      <div className="md:hidden absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#130335] to-transparent z-10" >
       <div className="cant flex flex-col md:flex-row h-auto md:h-96">
       
         <div className="w-full  md:w-1/2 flex items-center justify-center order-first md:order-last mb-8  md:mb-0">
@@ -51,7 +55,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="bg-[#120331]  h-16 items-center justify-center flex">
+      <div className="  h-16 items-center justify-center flex">
         <button 
           className='btn rounded-2xl hover:bg-[#120331] hover:text-white text-[#120331] hover:border-2 hover:border-white transition-all duration-300 p-2 sm:p-3' 
           onClick={scroll}
@@ -60,7 +64,7 @@ const Home = () => {
           <FaArrowDown className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div> 
-      </div>
+      </div></div>
   // </div>
   );
 }

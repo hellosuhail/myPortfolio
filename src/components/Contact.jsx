@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -10,22 +10,26 @@ const Contact = () => {
     message: ''
   });
 
+  const [submittedData, setSubmittedData] = useState(null);
+  const modalRef = useRef(null);
 
   const handleSubmit = async (e) => {
-  
-  
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3000/contact', formData)
-      console.log(response.data)
-    } catch (error) {
-      console.error('Error sending email:', error)
-    }
-          
-    console.log(formData);
-    // navigate('/')
-    document.getElementById('my_modal_2').showModal()
 
+    try {
+      await axios.post('http://localhost:3000/contact', formData);
+
+      // Store submitted data before resetting form
+      setSubmittedData(formData);
+
+      // Reset form fields
+      setFormData({ name: '', email: '', number: '', message: '' });
+
+      // Show modal
+      modalRef.current.showModal();
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   };
 
   const handleChange = (e) => {
@@ -36,7 +40,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#130335] text-white py-20">
+    <div className='h-[120vh] overflow-hidden w-full'>
+    <div className="bgdiv    top-700 absolute z-9"></div>
+
+    <section id="contact" className=" text-white relative z-10 py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -92,14 +99,14 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">Number</label>
+              <label htmlFor="number" className="block text-sm font-medium mb-1">Number</label>
               <input
-                type="tellr"
+                type="tel"
                 id="number"
                 name="number"
                 value={formData.number}
                 onChange={handleChange}
-                className="tabular-nums w-full px-4 py-2 bg-[#210d2d] border border-white/20 rounded-lg focus:outline-none focus:border-[#8a6ba3]"
+                className="w-full px-4 py-2 bg-[#210d2d] border border-white/20 rounded-lg focus:outline-none focus:border-[#8a6ba3]"
                 required
               />
             </div>
@@ -116,7 +123,7 @@ const Contact = () => {
               ></textarea>
             </div>
             <button
-              onClick={handleSubmit}
+              type="submit"
               className="w-full bg-[#8a6ba3] text-white py-2 px-4 rounded-lg hover:bg-[#6b4f8a] transition-colors duration-300 cursor-pointer"
             >
               Send Message
@@ -125,11 +132,14 @@ const Contact = () => {
         </div>
       </div>
 
-      <dialog id="my_modal_2" className="modal">
-        <div className="modal-box bg-[#210d2d] text-white">
-          <h3 className="font-bold text-lg text-[#8a6ba3]">Thank {formData.name} you for contacting me!</h3>
+      {/* Success Modal */}
+      <dialog ref={modalRef} id="my_modal_2" className="modal">
+        <div className="modal-box  text-white">
+          <h3 className="font-bold text-lg text-[#8a6ba3]">
+            {submittedData ? `Thank you, ${submittedData.name}, for contacting me!` : 'Thank you for contacting me!'}
+          </h3>
           <p className="py-4">Your message has been sent successfully. I'll get back to you soon.</p>
-          <p className='text-gray-300'>your message : {formData.message}</p>
+          {submittedData && <p className='text-gray-300'>Your message: {submittedData.message}</p>}
           <div className="modal-action">
             <form method="dialog">
               <button className="btn bg-[#8a6ba3] hover:bg-[#6b4f8a] text-white">Close</button>
@@ -137,8 +147,8 @@ const Contact = () => {
           </div>
         </div>
       </dialog>
-    </section>
+    </section></div>
   );
 };
 
-export default Contact; 
+export default Contact;

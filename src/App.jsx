@@ -14,7 +14,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="bg-[#130335]">
+    <div className="bg-black text-white">
       <Navbar />
       <Home />
       <About />
