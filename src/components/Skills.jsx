@@ -18,18 +18,17 @@ const Skills = () => {
     {
       category: "Backend",
       items: [
-        { name: "Node.js", icon: <FaNodeJs className="w-8 h-8" />, level: "Advanced" },
-        { name: "Express.js", icon: <SiExpress className="w-8 h-8" />, level: "Advanced" },
-        { name: "MongoDB", icon: <SiMongodb className="w-8 h-8" />, level: "Advanced" },
-        { name: "SQL", icon: <FaDatabase className="w-8 h-8" />, level: "Intermediate" },
+        { name: "Node.js", icon: <FaNodeJs className="w-8 h-8" />, level: "Basic" },
+        { name: "Express.js", icon: <SiExpress className="w-8 h-8" />, level: "Basic" },
+        { name: "MongoDB", icon: <SiMongodb className="w-8 h-8" />, level: "Basic" },
       ]
     },
     {
       category: "Tools & Others",
       items: [
-        { name: "Git", icon: <FaGitAlt className="w-8 h-8" />, level: "Advanced" },
-        { name: "GitHub", icon: <FaGithub className="w-8 h-8" />, level: "Advanced" },
-        { name: "Firebase", icon: <SiFirebase className="w-8 h-8" />, level: "Intermediate" },
+        { name: "Git", icon: <FaGitAlt className="w-8 h-8" />, level: "Intermediate" },
+        { name: "GitHub", icon: <FaGithub className="w-8 h-8" />, level: "Intermediate" },
+        { name: "Postman", icon: <SiFirebase className="w-8 h-8" />, level: "Intermediate" },
       ]
     }
   ];

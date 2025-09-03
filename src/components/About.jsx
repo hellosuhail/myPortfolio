@@ -26,15 +26,15 @@ const About = () => {
               Continuously learn and improve my skills in full-stack web development
               Currently, I am focusing on building a MERN authentication system and improving my backend skills.</p>
             <div className="flex space-x-4 mt-6">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/hellosuhail" target="_blank" rel="noopener noreferrer"
                 className="text-2xl hover:text-[#8a6ba3] transition-colors duration-300">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/suhail-saifi-ba89932b3/" target="_blank" rel="noopener noreferrer"
                 className="text-2xl hover:text-[#8a6ba3] transition-colors duration-300">
                 <FaLinkedin />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer"
                 className="text-2xl hover:text-[#8a6ba3] transition-colors duration-300">
                 <FaTwitter />
               </a>
